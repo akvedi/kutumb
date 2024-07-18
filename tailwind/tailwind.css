@@ -1,0 +1,132 @@
+@import "./custom/file-header.css";
+/**
+ * The line above injects the WordPress file header. It needs to be first,
+ * before this comment.
+ */
+
+/**
+ * This injects custom `@font-face` rules.
+ */
+@import "./custom/fonts.css";
+
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins, then adds custom base styles.
+ */
+@import "tailwindcss/base";
+@import "./custom/base.css";
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins, then adds custom component classes.
+ *
+ * The `@import-glob` line imports all CSS files from the `components`
+ * directory (except for `components.css`, which is imported on the following
+ * line). This is meant to simplify the process of integrating styles from
+ * JavaScript components or WordPress plugins.
+ */
+@import "tailwindcss/components";
+@import-glob "./custom/components/**/!(components).css";
+@import "./custom/components/components.css";
+
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins, then adds custom utility classes.
+ */
+@import "tailwindcss/utilities";
+@import "./custom/utilities.css";
+
+
+/* -------------- */
+/* Custom CSS */
+.sub-menu {
+    @apply hidden;
+}
+
+#primary-menu li {
+    @apply px-4 py-1;
+}
+
+#primary,
+#inside-footer, #inside-header {
+    @apply max-w-[1200px] m-auto;
+}
+
+body {
+    @apply bg-[#f4f4f4];
+}
+
+/* Post Navigation for Single post */
+
+.post-navigation {
+    @apply shadow-sm p-8 rounded-lg bg-white my-12 border-[1px] border-slate-200;
+}
+
+.nav-links {
+    @apply flex justify-between gap-2;
+}
+
+
+/* Custome Style for wordpress comment forms */
+
+#commentform {
+    @apply border-slate-200 border-[1px] rounded-lg p-4 mt-4 bg-slate-100;
+}
+
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform textarea {
+    @apply w-full p-2 mt-2 mb-4 border-[1px] border-slate-200 rounded-lg;
+}
+
+#commentform input[type="submit"] {
+    @apply bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg;
+}
+
+#commentform input[type="submit"]:hover {
+    @apply bg-blue-600;
+}
+
+#commentform label {
+    @apply block text-slate-700 mt-2 font-bold;
+}
+
+.comment-form-cookies-consent {
+    @apply flex items-center gap-2;
+}
+
+
+/* Custome stlye for Comment List */
+
+#comments .comment-body .comment-meta img {
+    @apply w-10 h-auto rounded-full;
+}
+
+#comments .depth-1 {
+    @apply pl-4 border-slate-200 border-[1px] rounded-lg p-4 mb-4 bg-slate-100;
+}
+
+#comments .depth-2 {
+    @apply pl-8 border-slate-200;
+}
+
+#comments .depth-3 {
+    @apply pl-12 border-slate-200;
+}
+
+
+
+/* Styling mobile menu */
+
+.mobile-menu-active {
+    @apply flex flex-col fixed left-0 top-0 overflow-y-scroll max-w-[350px] w-[80vw] shadow-md bg-white pt-8 h-screen;
+
+}
+
+.mobile-menu-active li{
+    @apply w-full py-2 px-12 border-b border-slate-200 font-semibold hover:text-primary hover:border-l-4 hover:border-l-primary hover:bg-[rgba(59,131,246,0.08)] ;
+}
+
+.mobile-menu-active > a {
+    @apply inline-flex self-center justify-self-center mb-12;
+}
